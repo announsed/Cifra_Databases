@@ -52,7 +52,6 @@ namespace WpfAppПерваяПробаПера
         {
             await _bot.SendMessage(_clientID, messege);
         }
-
     }
 
     internal static class NetworkPositionInfo
