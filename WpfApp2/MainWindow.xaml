@@ -12,6 +12,17 @@
             <Button x:Name="ButtonColor" Width="100" Height="100"  Canvas.Left="110" Canvas.Top="70" Canvas.ZIndex="0"/>
             <Rectangle Width="100" Height="100" Fill="Green" Canvas.Left="70" Canvas.Top="100" Canvas.ZIndex="2"/>
             <Rectangle Width="100" Height="100" Fill="Yellow" Canvas.Left="40" Canvas.Top="130" Canvas.ZIndex="1"/>
+            <Rectangle Width="100" Height="50" Canvas.Left="110" Canvas.Top="20">
+                <Rectangle.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="Yellow" Offset="0.0" />
+                        <GradientStop Color="Orange" Offset="0.5" />
+                        <GradientStop Color="MistyRose" Offset="0.7" />
+                        <GradientStop Color="Red" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="50" Height="100" Fill="NavajoWhite" Canvas.Left="210" Canvas.Top="70"/>
         </Canvas>
     </Grid>
     
