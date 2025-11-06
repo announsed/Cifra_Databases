@@ -51,7 +51,7 @@
         </Grid.ColumnDefinitions>
 
         <Button Name="SuperBTN" Style="{StaticResource myButton}" Grid.Column="1" Grid.Row="1"  
-                Content="     Выполнить проверку подключения     " FontSize="16" Foreground="White" 
+                Content="    Выполнить проверку подключения    " FontSize="16" Foreground="White" 
                 FontWeight="DemiBold" Click="SuperBTN_Click" HorizontalAlignment="Center" 
                 VerticalAlignment="Center" Margin="10"/>
 
