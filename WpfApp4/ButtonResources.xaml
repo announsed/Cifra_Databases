@@ -16,7 +16,7 @@
     </Style>
     <!-- Жеский RGBтшный стиль кнопки-->
     <Style x:Key="RgbButtonStyle" TargetType="Button">
-        <Setter>
+
     </Style>
     <!-- Стиль для кнопки с эффектом при наведении -->
     <Style x:Key="HoverEffectButtonStyle"
