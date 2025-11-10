@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp7", "WpfApp7\WpfApp7.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp8", "WpfApp8\WpfApp8.csproj", "{1A38846D-BCB7-49D9-B5B7-38CC6AA74F47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Урок 93. WPF. Привязки через свойства", "Урок 93. WPF. Привязки через свойства\Урок 93. WPF. Привязки через свойства.csproj", "{B8A0F15D-603D-426B-882F-9BBB9E17F980}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{1A38846D-BCB7-49D9-B5B7-38CC6AA74F47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A38846D-BCB7-49D9-B5B7-38CC6AA74F47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A38846D-BCB7-49D9-B5B7-38CC6AA74F47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8A0F15D-603D-426B-882F-9BBB9E17F980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8A0F15D-603D-426B-882F-9BBB9E17F980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8A0F15D-603D-426B-882F-9BBB9E17F980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8A0F15D-603D-426B-882F-9BBB9E17F980}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,47 @@
+﻿<Window x:Class="Урок_93._WPF._Привязки_через_свойства.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Урок_93._WPF._Привязки_через_свойства"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <GroupBox Header="Фильмы" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding Movies, UpdateSourceTrigger=PropertyChanged}">
+                <StackPanel Grid.Row="0" Grid.Column="0">
+                    <TextBlock Text="{Binding Movies.Name}"/>
+                </StackPanel>
+            </ListBox>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <GroupBox Header="Информация о фильме" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <ListBox ItemsSource="{Binding SelectedMovie}">
+                <StackPanel Grid.Row="0" Grid.Column="1">
+                    <TextBlock Text="ID :"/>
+                    <TextBlock Text="{Binding SelectedMovie.Id}"/>
+                    <TextBlock Text="Имя :"/>
+                    <TextBlock Text="{Binding SelectedMovie.Name}"/>
+                    <TextBlock Text="Год :"/>
+                    <TextBlock Text="{Binding SelectedMovie.Year}"/>
+                    <TextBlock Text="Режиссёр :"/>
+                    <TextBlock Text="{Binding SelectedMovie.DirectorName}"/>
+                    <TextBlock Text="Жанр :"/>
+                    <TextBlock Text="{Binding SelectedMovie.Genre}"/>
+                    <TextBlock Text="Оценка :"/>
+                    <TextBlock Text="{Binding SelectedMovie.Graduate}"/>
+                </StackPanel>
+            </ListBox>
+        </StackPanel>
+        <Button x:Name="ButtonDowenloadCSVFile" Content="Загрузить" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" Click="ButtonDowenloadCSVFile_Click"/>
+    </Grid>
+</Window>
