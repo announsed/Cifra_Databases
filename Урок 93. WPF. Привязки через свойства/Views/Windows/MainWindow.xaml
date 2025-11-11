@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Урок_93._WPF._Привязки_через_свойства"
+        xmlns:vm="clr-namespace:Урок_93._WPF._Привязки_через_свойства.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -17,13 +18,13 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="0">
             <GroupBox Header="Фильмы" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding Movies, UpdateSourceTrigger=PropertyChanged}">
+            <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding Movies}">
                 <StackPanel Grid.Row="0" Grid.Column="0">
                     <TextBlock Text="{Binding Movies.Name}"/>
                 </StackPanel>
             </ListBox>
         </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="1">
+        <StackPanel Grid.Row="0" Grid.Column="1" >
             <GroupBox Header="Информация о фильме" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
             <ListBox ItemsSource="{Binding SelectedMovie}">
                 <StackPanel Grid.Row="0" Grid.Column="1">

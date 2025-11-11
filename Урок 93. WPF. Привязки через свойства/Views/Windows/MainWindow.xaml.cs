@@ -22,6 +22,7 @@ namespace Урок_93._WPF._Привязки_через_свойства
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = moviesViewModel;
         }
 
         private void ButtonDowenloadCSVFile_Click(object sender, RoutedEventArgs e)
