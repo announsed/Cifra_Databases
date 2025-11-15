@@ -1,0 +1,29 @@
+﻿<Window x:Class="Урок_96._Домашнее_задание._WPF._DataGrid_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Урок_96._Домашнее_задание._WPF._DataGrid_"
+        mc:Ignorable="d"
+        xmlns:vm="clr-namespace:Урок_96._Домашнее_задание._WPF._DataGrid_.ViewModel"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="0" ItemsSource="{Binding Products}" AutoGenerateColumns="False">
+            <DataGrid.Collums>
+               <DataGridTextColumn Header="Модель" Binding="{Binding Id}" Width="12*"/>
+               <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="20*"/>
+               <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="50*"/>
+               <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="10*"/>
+               <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}" Width="10*"/>
+            </DataGrid.Collums>
+           <DataGrid.DataContext>
+              <vm:GridViewViewModel/>
+           </DataGrid.DataContext>
+        </DataGrid>
+    </Grid>
+</Window>
