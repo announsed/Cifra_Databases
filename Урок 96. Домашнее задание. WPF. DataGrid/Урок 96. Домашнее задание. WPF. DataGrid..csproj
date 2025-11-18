@@ -9,4 +9,31 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="obj\Debug\net9.0-windows\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net9.0-windows\App.g.i.cs" />
+    <Compile Include="obj\Debug\net9.0-windows\Урок 96. Домашнее задание. WPF. DataGrid..AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net9.0-windows\Урок 96. Домашнее задание. WPF. DataGrid..GlobalUsings.g.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="obj\project.assets.json" />
+    <Content Include="obj\Урок 96. Домашнее задание. WPF. DataGrid..csproj.nuget.dgspec.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\net9.0-windows\" />
+    <Folder Include="obj\Debug\net9.0-windows\refint\" />
+    <Folder Include="obj\Debug\net9.0-windows\ref\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="obj\Debug\net9.0-windows\Урок 96. Домашнее задание. WPF. DataGrid..AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net9.0-windows\Урок 96. Домашнее задание. WPF. DataGrid..assets.cache" />
+    <None Include="obj\Debug\net9.0-windows\Урок 96. Домашнее задание. WPF. DataGrid..GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\project.nuget.cache" />
+    <None Include="obj\Урок 96. Домашнее задание. WPF. DataGrid..csproj.nuget.g.props" />
+    <None Include="obj\Урок 96. Домашнее задание. WPF. DataGrid..csproj.nuget.g.targets" />
+  </ItemGroup>
+
 </Project>

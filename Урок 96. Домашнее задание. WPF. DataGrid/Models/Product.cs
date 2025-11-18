@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Урок_96._Домашнее_задание._WPF._DataGrid_.Models
 {
-    class Product
+    public class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }

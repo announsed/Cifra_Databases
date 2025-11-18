@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Урок_96._Домашнее_задание._WPF._DataGrid_.ViewModel;
 
 namespace Урок_96._Домашнее_задание._WPF._DataGrid_
 {
@@ -18,7 +19,7 @@ namespace Урок_96._Домашнее_задание._WPF._DataGrid_
     {
         public MainWindow()
         {
-            InitializeComponent();
+            DataContext = new GridViewViewModel();
         }
     }
 }

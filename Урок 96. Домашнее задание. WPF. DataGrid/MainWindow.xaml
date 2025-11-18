@@ -14,16 +14,16 @@
         </Grid.RowDefinitions>
 
         <DataGrid Grid.Row="0" ItemsSource="{Binding Products}" AutoGenerateColumns="False">
-            <DataGrid.Collums>
+            <DataGrid.Columns>
                <DataGridTextColumn Header="Модель" Binding="{Binding Id}" Width="12*"/>
                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="20*"/>
                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="50*"/>
                <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="10*"/>
                <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}" Width="10*"/>
-            </DataGrid.Collums>
-           <DataGrid.DataContext>
+            </DataGrid.Columns>
+           <!--<DataGrid.DataContext>
               <vm:GridViewViewModel/>
-           </DataGrid.DataContext>
+           </DataGrid.DataContext>-->
         </DataGrid>
     </Grid>
 </Window>

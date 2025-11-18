@@ -9,7 +9,7 @@ using Урок_96._Домашнее_задание._WPF._DataGrid_.ViewModel.Bas
 
 namespace Урок_96._Домашнее_задание._WPF._DataGrid_.ViewModel
 {
-    class GridViewViewModel : ViewModelBase
+    public class GridViewViewModel : ViewModelBase
     {
         private List<Product> _products;
         public List<Product> Products
