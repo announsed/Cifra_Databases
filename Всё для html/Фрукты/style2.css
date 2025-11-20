@@ -1,0 +1,47 @@
+.header
+{
+    justify-content: space-between;
+    display: flex;
+}
+div{
+    border: 2px solid black;
+}
+.logo 
+{
+    width: 100px;
+    right: 100px;
+    background-color: blue;
+}
+
+.headClass a
+{
+    margin: 25px 200px 1px 20px;
+    background-color: aquamarine;
+    text-decoration: none;
+}
+
+.Text
+{
+    position:relative;
+    left: 50%;
+    width: 35%;
+}
+
+.Text h2
+{
+    position: relative;
+    left: 23%;
+}
+
+.Text p
+{
+    text-indent: 10px;
+    display: flex;
+    margin: 0 auto;
+    margin: 20px;
+}
+
+.fruits
+{
+    
+}
