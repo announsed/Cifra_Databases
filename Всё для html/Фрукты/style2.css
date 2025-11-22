@@ -3,9 +3,22 @@
     justify-content: space-between;
     display: flex;
 }
+
+.headClass
+{
+    display: flex;
+    justify-content: space-between;
+}
+
 div{
     border: 2px solid black;
 }
+
+body
+{
+    background-image: url('main-background.png');
+}
+
 .logo 
 {
     width: 100px;
@@ -15,7 +28,8 @@ div{
 
 .headClass a
 {
-    margin: 25px 200px 1px 20px;
+    font-size: 40px;
+    margin: 25px 100px 1px 20px;
     background-color: aquamarine;
     text-decoration: none;
 }
@@ -36,12 +50,80 @@ div{
 .Text p
 {
     text-indent: 10px;
-    display: flex;
     margin: 0 auto;
     margin: 20px;
+    line-height: 1.5;
 }
 
 .fruits
 {
-    
+    position: relative;
+    width: 40%;
+    bottom: 670px;
+    left: 30px;
+    border: 1px solid black;
+}
+
+.inline-block
+{
+    display: inline-block;
+}
+
+.btnDelivery
+{
+    border: 1px solid blueviolet;
+    background-color: blueviolet;
+    font-size: 35px;
+    font-style: oblique;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+    padding: 20px 100px;
+    color: blue;
+    text-decoration: none;
+}
+
+.AllCart
+{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+}
+
+#C1
+{
+    background-color: darkgoldenrod;
+}
+
+#C2
+{
+    background-color: aquamarine;
+}
+
+#C3
+{
+    background-color: darkcyan;
+}
+
+#C4
+{
+    background-color:forestgreen;
+}
+
+.Cart h2
+{
+    text-align: center;
+    border: 1px solid black;
+}
+
+.Cart p
+{
+    text-align: center;
+    border: 1px solid black;
+}
+
+.Cart img
+{
+    width: 300px;
 }
