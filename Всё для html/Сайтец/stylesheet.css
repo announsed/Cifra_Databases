@@ -1,0 +1,37 @@
+.header
+{
+    background-image: url('Дано/Изображения/headering.png');
+    width: 1919px;
+    height: 900px;
+}
+.menu__bar
+{
+    width: 1808px;
+    height: 131px;
+    margin: auto;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+.logo
+{
+    width: 184px;
+    height: 51px;
+}
+.bar__list
+{
+    width: 906px;
+    height: 128px;
+}
+.bar__icons
+{
+    width: 365px;
+    height: 130px;
+}
+.body
+{
+    background-image: url('Дано/Изображения/pngegg.png');
+    width: 1919px;
+    height: 900px;
+    background-repeat:no-repeat;
+}
