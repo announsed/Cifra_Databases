@@ -36,4 +36,8 @@
     <None Include="obj\Урок 96. Домашнее задание. WPF. DataGrid..csproj.nuget.g.targets" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="5.3.8" />
+  </ItemGroup>
+
 </Project>

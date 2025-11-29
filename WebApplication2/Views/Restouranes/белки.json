@@ -1,0 +1,66 @@
+{
+    "zoo": {
+        "squirrels": [
+            {
+                "name": "Балтика",
+                "age": 3,
+                "furColor": "коричневый",
+                "habitat": "лес"
+            },
+            {
+                "name": "Снежок",
+                "age": 2,
+                "furColor": "белый",
+                "habitat": "деревня"
+            },
+            {
+                "name": "Шустрик",
+                "age": 4,
+                "furColor": "серый",
+                "habitat": "парк"
+            },
+            {
+                "name": "Лесной",
+                "age": 1,
+                "furColor": "рыжий",
+                "habitat": "лес"
+            },
+            {
+                "name": "Рыжик",
+                "age": 5,
+                "furColor": "рыжий",
+                "habitat": "парк"
+            },
+            {
+                "name": "Котенок",
+                "age": 2,
+                "furColor": "черный",
+                "habitat": "город"
+            },
+            {
+                "name": "Малышка",
+                "age": 1,
+                "furColor": "пепельный",
+                "habitat": "сад"
+            },
+            {
+                "name": "Солнышко",
+                "age": 3,
+                "furColor": "золотистый",
+                "habitat": "парк"
+            },
+            {
+                "name": "Пушистик",
+                "age": 4,
+                "furColor": "серо-коричневый",
+                "habitat": "лес"
+            },
+            {
+                "name": "Дуремар",
+                "age": 2,
+                "furColor": "темно-коричневый",
+                "habitat": "лес"
+            }
+        ]
+    }
+}

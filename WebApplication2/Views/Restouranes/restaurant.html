@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Card</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f3ee;
+        }
+
+        .restaurant-card {
+            width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #3e2723;
+            color: #fefae0;
+            transition: transform 0.3s ease;
+        }
+
+        .restaurant-card:hover {
+            transform: scale(1.05);
+        }
+
+        .restaurant-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .restaurant-content {
+            padding: 15px;
+        }
+
+        .restaurant-name {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            color: #ffe0b2;
+        }
+
+        .restaurant-description {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            color: #d7ccc8;
+        }
+
+        .restaurant-rating {
+            font-size: 0.9em;
+            color: #ffe0b2;
+            margin-bottom: 15px;
+        }
+
+        .restaurant-button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #5d4037;
+            color: #fefae0;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .restaurant-button:hover {
+            background-color: #8d6e63;
+        }
+    </style>
+</head>
+<body>
+    <div class="restaurant-card">
+        <img src="/restaurant.png" alt="Restaurant Image" class="restaurant-image">
+        <div class="restaurant-content">
+            <h2 class="restaurant-name">La Belle Époque</h2>
+            <p class="restaurant-description">Очаровательный ресторан изысканной французской кухни с элегантной атмосферой..</p>
+            <p class="restaurant-rating">Рейтинг: ⭐⭐⭐⭐☆</p>
+            <button class="restaurant-button">Узнать больше</button>
+        </div>
+    </div>
+</body>
+</html>
