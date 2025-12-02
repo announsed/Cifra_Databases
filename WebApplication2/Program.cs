@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace WebApplication2
 {
@@ -77,6 +78,68 @@ namespace WebApplication2
                 string jsonPages = File.ReadAllText("Views\\Restouranes\\белки.json");
                 return Results.Content(jsonPages, "text/json");
             });
+
+            List<Fruit> fruits =new List<Fruit>() 
+            {
+                new Fruit("Яблоко",34.9f,2),
+                new Fruit("Груша", 76,1.5f),
+                new Fruit("Виноград",498,4)
+            };
+
+            string fruitsSerialJSON = JsonSerializer.Serialize(fruits, options);
+            const string path = $"fruits.json";
+            File.WriteAllText(path, fruitsSerialJSON);
+
+            string jsonFromFile = File.ReadAllText(path);
+            List<Fruit> fruitsDeserializationJson = JsonSerializer.Deserialize<List<Fruit>>(jsonFromFile, options);
+            var frut = "";
+            foreach (var fruct in fruitsDeserializationJson)
+            {
+                frut += "<li>" + fruct.Name + " - " + fruct.Prise + " - " + fruct.Weigth + "</li> \n";
+            }
+
+            var html = "<!DOCTYPE html>\r\n" +
+                "<html>\r\n" +
+                "<head>\r\n" +
+                "<meta charset=\"utf-8\" />\r\n" +
+                "<title>Фрукты</title>\r\n" +
+                "</head>\r\n" +
+                "<body>\r\n" +
+                "<h1>Фрукты</h1>\r\n" +
+                "<ul>\r\n" +
+                $"{frut}\r\n" +
+                "</ul>\r\n" +
+                "</body>\r\n" +
+                "</html>\r\n";
+            app.MapGet("/h", () => 
+            {
+                return Results.Content(html, "text/html");
+            });
+
+            app.MapPost("/submit-form", async (HttpContext context) =>
+            {
+                // Чтение данных из формы
+                IFormCollection form = await context.Request.ReadFormAsync();
+                // Получение значений полей формы
+                string name = form["name"];
+                string email = form["email"];
+                string message = form["message"];
+                // Простейшая обработка данных
+                return Results.Ok($"Форма успешно отправлена! Имя: {name}, Email:{ email},Сообщение: { message}");
+            });
+
+
+            app.MapPost("/user", async (HttpContext context) =>
+            {
+                IFormCollection form = context.Request.Form;
+                ContactForm formData = new ContactForm();
+                formData.Name = form["name"];
+                formData.Email = form["email"];
+                formData.Message = form["message"];
+                return Results.Ok($"Форма успешно отправлена! Имя: {formData.Name}, ,Email: {formData.Email}, Сообщение: {formData.Message}");
+            });
+
+
             app.Run();
         }
     }
