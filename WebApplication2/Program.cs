@@ -1,10 +1,17 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using WebApplication2.Views;
 
 namespace WebApplication2
 {
     public class Program
     {
+        ///<summary>
+        ///Продукт
+        ///</summary>
+        ///<returns>Статус пост запроса</returns>
+        ///<param name="args">Любой текст</param>
         public static void Main(string[] args)
         {
             List<User> users = new List<User>()
@@ -128,15 +135,36 @@ namespace WebApplication2
                 return Results.Ok($"Форма успешно отправлена! Имя: {name}, Email:{ email},Сообщение: { message}");
             });
 
+            app.MapGet("/user", () =>
+            {
+                return Results.Content(File.ReadAllText("Views\\Restouranes\\RegistrationFormUser.html"), "text/html");
+            });
+
 
             app.MapPost("/user", async (HttpContext context) =>
             {
-                IFormCollection form = context.Request.Form;
-                ContactForm formData = new ContactForm();
+                IFormCollection form = await context.Request.ReadFormAsync();
+                UserModel formData = new UserModel();
                 formData.Name = form["name"];
                 formData.Email = form["email"];
-                formData.Message = form["message"];
-                return Results.Ok($"Форма успешно отправлена! Имя: {formData.Name}, ,Email: {formData.Email}, Сообщение: {formData.Message}");
+                formData.Password = form["password"];
+                formData.ReqvestPassword = form["ReqvestPassword"];
+                formData.Age = Convert.ToInt32(form["age"]);
+                formData.PhoneNumber = form["phoneNumber"];
+                formData.Add = form["add"];
+
+                // Список для хранения ошибок
+                List<ValidationResult> validationResults = new List<ValidationResult>();
+                ValidationContext validationContext = new ValidationContext(formData);
+
+                // Валидация объекта
+                if (!Validator.TryValidateObject(formData, validationContext,
+                validationResults, true))
+                {
+                    return Results.BadRequest(validationResults);
+                }
+
+                return Results.Content($"Форма успешно отправлена! \r\nИмя: {formData.Name}, Email: {formData.Email}, Пароль: {formData.Password}, Повтор пароля: {formData.ReqvestPassword}, Возраст: {formData.Age}, Номер телефона: {formData.PhoneNumber}, Реклама: {formData.Add} ", statusCode:200, contentType:"text/json");
             });
 
 
