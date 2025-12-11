@@ -1,6 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.IIS;
+using MiniValidation;
 using WebApplication2.Views;
 
 namespace WebApplication2
@@ -14,6 +17,15 @@ namespace WebApplication2
         ///<param name="args">Любой текст</param>
         public static void Main(string[] args)
         {
+            var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddControllers(); // Добавьте эту строку
+
+            var app = builder.Build();
+
+            // Убедитесь, что есть этот middleware
+            app.UseHttpsRedirection();
+            app.UseAuthorization();
+            app.MapControllers(); // И эта строка
             List<User> users = new List<User>()
             {
                 new User("Мария", 43, "mariya.@gmail.com", 8800553535),
@@ -34,9 +46,6 @@ namespace WebApplication2
                 new Order(2,"Доставляется",34546473),
                 new Order(3, "ВЫпорлнен", 769807)
             };
-
-            var builder = WebApplication.CreateBuilder(args);
-            var app = builder.Build();
 
             app.MapGet("/", () => "Самая первая страничка");
             app.MapGet("/rundom", (int number, int number2) => 
@@ -166,6 +175,30 @@ namespace WebApplication2
 
                 return Results.Content($"Форма успешно отправлена! \r\nИмя: {formData.Name}, Email: {formData.Email}, Пароль: {formData.Password}, Повтор пароля: {formData.ReqvestPassword}, Возраст: {formData.Age}, Номер телефона: {formData.PhoneNumber}, Реклама: {formData.Add} ", statusCode:200, contentType:"text/json");
             });
+
+
+            app.MapPost("/json1", ([FromForm] UserModel form) =>
+            {
+                
+                string path = @"Views\Restouranes\ВашJsonФайл.json";
+                if (!MiniValidator.TryValidate(form, out var errors))
+                {
+                    return Results.BadRequest(errors);
+                }
+                else 
+                {
+                    File.AppendAllText(path, form.ToString());
+                }
+
+                return Results.Ok($"Форма успешно отправлена! \r\nИмя: {form.Name}, Email: {form.Email}, Пароль: {form.Password}, Повтор пароля: {form.ReqvestPassword}, Возраст: {form.Age}, Номер телефона: {form.PhoneNumber}, Реклама: {form.Add} ");
+
+            });
+
+            app.MapGet("/json", async (HttpContext context) =>
+            {
+                return Results.Content(File.ReadAllText("Views\\Restouranes\\RegistrationFormUser.html"), "text/html");
+            });
+
 
 
             app.Run();
