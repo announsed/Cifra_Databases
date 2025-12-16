@@ -14,7 +14,7 @@ namespace WebApplicationWether
                 options.UseSqlite("DataSource=myDatabase.db");
             });
             builder.Services.AddScoped<IProductService, ProductService>();
-            builder.Services.AddOpenApiDocument(options => 
+            builder.Services.AddOpenApiDocument(options =>
             {
                 options.Title = "Title";
                 options.Version = "V1";
@@ -32,13 +32,13 @@ namespace WebApplicationWether
             {
                 app.MapOpenApi();
             }
-            app.MapGet("/library/{authorId}/{bookId}", async (int authorId, int bookId, HttpContext context) => 
+            app.MapGet("/library/{authorId}/{bookId}", async (int authorId, int bookId, HttpContext context) =>
             {
                 var error = context.Response.StatusCode = StatusCodes.Status400BadRequest;
-                
-                if (authorId <= 0 || bookId <= 0) 
+
+                if (authorId <= 0 || bookId <= 0)
                 {
-                    await context.Response.WriteAsync( error + " Bad Request - НЕ дано");
+                    await context.Response.WriteAsync(error + " Bad Request - НЕ дано");
                 }
 
                 var query = context.Request.Query;
@@ -48,7 +48,7 @@ namespace WebApplicationWether
                 {
                     await context.Response.WriteAsync("Параметр format не был передан");
                 }
-                if (filter == null) 
+                if (filter == null)
                 {
                     await context.Response.WriteAsync("Параметр filter не был передан");
                 }
@@ -57,7 +57,7 @@ namespace WebApplicationWether
             });
 
             app.UseOpenApi();
-            app.UseSwaggerUi(c => 
+            app.UseSwaggerUi(c =>
             {
                 c.DocExpansion = "c";
             });
@@ -101,6 +101,12 @@ namespace WebApplicationWether
                 var product = productService.GetProductById(id);
                 // Возвращаем продукт по ID
                 return product != null ? Results.Ok(product) : Results.NotFound();
+            });
+
+            app.MapGet("/products/{name}/{min}/{max}", async (string name, decimal min, decimal max, IProductService productService) =>
+            {
+                var product = productService.Filtracia(name, min, max);
+            return product != null ? Results.Ok(product) : Results.NotFound();
             });
 
 

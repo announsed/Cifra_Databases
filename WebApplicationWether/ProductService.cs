@@ -37,5 +37,12 @@ namespace WebApplicationWether
             }
         }
 
+        public IEnumerable<Product> Filtracia(string name, decimal minPrice, decimal maxPrice) 
+        {
+            var productsByName = _context.Products.Where(p => p.Name == name && p.Price >= minPrice && p.Price <= maxPrice).ToArray();
+
+            return productsByName;
+        }
+
     }
 }
