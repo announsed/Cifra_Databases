@@ -1,5 +1,6 @@
 
 using System.Net;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplicationWether
 {
@@ -8,6 +9,11 @@ namespace WebApplicationWether
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseSqlite("DataSource=myDatabase.db");
+            });
+            builder.Services.AddScoped<IProductService, ProductService>();
             builder.Services.AddOpenApiDocument(options => 
             {
                 options.Title = "Title";
@@ -18,7 +24,7 @@ namespace WebApplicationWether
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
-           // builder.Configuration.
+            //builder.Services.AddSingleton();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -67,7 +73,7 @@ namespace WebApplicationWether
 
             app.MapControllers();
 
-            
+
             //app.Use(async (context, next) =>
             //{
             //    Console.WriteLine("Второй Middleware: Обработка запроса");
@@ -79,6 +85,23 @@ namespace WebApplicationWether
             //    await context.Response.WriteAsync("Hello from ASP.NET Core!");
             //});
 
+
+
+
+            // Регистрация сервисов
+
+            app.MapGet("/products", async (IProductService productService) =>
+            {
+                var products = productService.GetAllProducts();
+                return Results.Ok(products); // Возвращаем все продукты
+            });
+
+            app.MapGet("/products/{id}", async (int id, IProductService productService) =>
+            {
+                var product = productService.GetProductById(id);
+                // Возвращаем продукт по ID
+                return product != null ? Results.Ok(product) : Results.NotFound();
+            });
 
 
             app.Run();
