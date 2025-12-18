@@ -17,15 +17,31 @@ namespace WebApplicationWether
         {
             return _context.Products.Find(id);
         }
-        public void AddProduct(Product product)
+        public void AddProduct(Product product, out string? status)
         {
-            _context.Products.Add(product);
-            _context.SaveChanges();
+            if (!String.IsNullOrWhiteSpace(product.Name) && product.Price > 0)
+            {
+                _context.Products.Add(product);
+                _context.SaveChanges();
+            }
+            else 
+            {
+                status = "делаешь что-то не то";
+            }
+            status = null;
         }
-        public void UpdateProduct(Product product)
+        public void UpdateProduct(Product product, out string? status)
         {
-            _context.Entry(product).State = EntityState.Modified;
-            _context.SaveChanges();
+            if (_context.Entry(product) != null)
+            {
+                _context.Entry(product).State = EntityState.Modified;
+                _context.SaveChanges();
+            }
+            else
+            {
+                status = "делаешь что-то не то";
+            }
+            status = null;
         }
         public void DeleteProduct(int id)
         {
@@ -37,7 +53,7 @@ namespace WebApplicationWether
             }
         }
 
-        public IEnumerable<Product> Filtracia(string name, decimal minPrice, decimal maxPrice) 
+        public IEnumerable<Product> Filtracia(string name, decimal minPrice, decimal maxPrice)
         {
             var productsByName = _context.Products.Where(p => p.Name == name && p.Price >= minPrice && p.Price <= maxPrice).ToArray();
 

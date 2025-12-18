@@ -103,12 +103,19 @@ namespace WebApplicationWether
                 return product != null ? Results.Ok(product) : Results.NotFound();
             });
 
-            app.MapGet("/products/{name}/{min}/{max}", async (string name, decimal min, decimal max, IProductService productService) =>
+            app.MapGet("/products/{name:minlength(2):maxlength(20)}/{min:decimal:min(1)}/{max:decimal:max(2000000)}", async (string name, decimal min, decimal max, IProductService productService) =>
             {
                 var product = productService.Filtracia(name, min, max);
             return product != null ? Results.Ok(product) : Results.NotFound();
             });
 
+            app.MapGet("/productsadd/{name:minlength(2):maxlength(20)}/{prise:decimal:min(1):max(200000)}", async (string name, decimal prise, IProductService productService) =>
+            {
+                var product = new Product() {Name = name, Price = prise };
+                productService.AddProduct(product, out string? ffalse);
+
+                return product;
+            });
 
             app.Run();
         }
